@@ -26,14 +26,17 @@ camera.rotateY(500)
 renderer.render(scene, camera);
 
 const pointLight = new THREE.PointLight(0xfcdb80, 1.2);
-const pointLight2 = new THREE.PointLight(0xfcdb80, 0.5);
+const pointLight2 = new THREE.PointLight(0xfcdb80, 0.2);
+const pointLight3 = new THREE.PointLight(0xfcdb80, 0.1);
 const pointLightTorch = new THREE.PointLight(0xf7fc6a, 1);
 pointLight.position.set(8, 8, -5);
 pointLight2.position.set(0, 8, 0);
-pointLightTorch.position.set(-0.2, 0.5, 1);
+pointLight3.position.set(0, 1, 1);
+pointLightTorch.position.set(-0, 0.5, 1);
 const ambientLight = new THREE.AmbientLight(0xffffff,2); 
 const lightHelper = new THREE.PointLightHelper(pointLight);
 const lightHelperTorch = new THREE.PointLightHelper(pointLightTorch);
+const lightHelperDiamondLight = new THREE.PointLightHelper(pointLight3);
 const gridHelper = new THREE.GridHelper(200, 50)
 const helper = new THREE.CameraHelper( camera );
 
@@ -42,7 +45,7 @@ const clock = new THREE.Clock();
 
 
 // scene.add(lightHelper,gridHelper, helper, lightHelperTorch);
-scene.add(pointLight,pointLight2, pointLightTorch);
+scene.add(pointLight, pointLight2, pointLightTorch);
 
 
 //#endregion
@@ -96,23 +99,6 @@ loader.load( '/assets/chest.glb', function ( gltf ) {
 
 } );
 
-// scene.getObjectByName('RedDiamond')
-
-// const glassMaterial = new THREE.MeshBasicMaterial({
-  
-//   roughness: 0,
-//   transmission: 0.5,
-// });
-
-
-
-//#endregion
-
-//#region mouse events, camera movement by click
-
-
-
-
 
 let counter = 0;
 let animIsFinished = true;
@@ -138,12 +124,12 @@ btnNext.addEventListener("click", onButtonNext);
       
         if ( actionChestUp !== null ) {
 
-          
+          actionChestUp.reset()
           actionChestUp.clampWhenFinished = true;
           actionChestUp.setLoop(THREE.LoopOnce, 1);
           actionChestUp.timeScale = 1;
           actionChestUp.play();
-         
+        
           gsap.to(camera.position,{
             x: 1,
             y: 6,
@@ -182,9 +168,10 @@ btnNext.addEventListener("click", onButtonNext);
 
           gsap.to(firstPoint,{
             x: -2,
+            z: 1.5,
             duration: 4,
             onUpdate: function() {
-             camera.lookAt(firstPoint.x, 0, 0)
+             camera.lookAt(firstPoint.x, 0, firstPoint.z)
             },
             onComplete: function(){
               animIsFinished = true;
@@ -329,6 +316,14 @@ function onButtonPrevious(event){
     
     //Previous Action 1//
     if(counter <= 1 ){
+      if ( actionChestUp !== null ) {
+
+        
+        
+        actionChestUp.paused = false
+        actionChestUp.timeScale = -1;
+        actionChestUp.setLoop(THREE.LoopOnce);
+        actionChestUp.play();
       
         gsap.to(camera.position, {
           x: 10,
@@ -346,11 +341,12 @@ function onButtonPrevious(event){
           onComplete: function(){
             animIsFinished = true;
           }
-       })
         
-      
-    
-      
+        
+
+       })
+      }
+        
     }
     //Previous Action 2//
     if(counter == 2){
@@ -383,12 +379,10 @@ function onButtonPrevious(event){
     }
     //Previous Action #3
     if(counter == 3){
-      if ( actionChestUp !== null ) {
+      if(counter !== null)  {
         
      
-        actionChestUp.clampWhenFinished = true;
-        actionChestUp.loop = THREE.LoopOnce;
-        actionChestUp.play()
+        
         
         gsap.to(camera.position, {
           x: 1,
@@ -412,7 +406,7 @@ function onButtonPrevious(event){
     }
  //Previous Action #4
     if(counter == 4){
-      if ( actionChestUp !== null ) {
+     
         
      
         
@@ -436,14 +430,12 @@ function onButtonPrevious(event){
               animIsFinished = true;
             }
         })
-      }
+      
     }
     //Previous Action #5
     if(counter == 5){
         
-      actionBlueChestUp.clampWhenFinished = true;
-      actionBlueChestUp.loop = THREE.LoopOnce;
-      actionBlueChestUp.play();
+      
 
       gsap.to(camera.position, {
         x: 0.5,
@@ -468,9 +460,7 @@ function onButtonPrevious(event){
     //Previous Action #6
     if(counter == 6){
         
-      actionRedChestUp.clampWhenFinished = true;
-      actionRedChestUp.loop = THREE.LoopOnce;
-      actionRedChestUp.play();
+   
 
       gsap.to(camera.position, {
         x: -0.2,
