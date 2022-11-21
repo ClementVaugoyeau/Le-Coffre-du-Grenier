@@ -63,7 +63,7 @@ var diamond
 
 
 //#region gltf loader
-loader.load( '/assets/chest.glb', function ( gltf ) {
+loader.load( 'https://github.com/ClementVaugoyeau/Le-Coffre-du-Grenier/blob/master/docs/assets/chest.glb', function ( gltf ) {
 
 	const modelChest = gltf.scene
   console.log(gltf.scene.children[2].name)
