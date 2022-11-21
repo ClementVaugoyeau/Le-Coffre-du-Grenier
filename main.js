@@ -107,9 +107,6 @@ let firstPoint = {x : 0, y: 0, z: 0}
 camera.lookAt(0, 0, 0)
 
 const btnNext = document.getElementById("btnNext")
-
-
-
 btnNext.addEventListener("click", onButtonNext);
 
 
