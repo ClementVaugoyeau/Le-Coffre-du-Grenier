@@ -6,6 +6,8 @@ Lien du jeu : https://clementvaugoyeau.github.io/Le-Coffre-du-Grenier/
 
 Bon Jeu !
 
+![Alt text](assets\readme-picture.jpg?raw=true "readme-picture.jp")
+
  # Chest in the atic.
 
 It's a very short game made with THREE.js and Vite.
