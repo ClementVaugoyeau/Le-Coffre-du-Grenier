@@ -11,7 +11,7 @@ Bon Jeu !
 
  <p align="center">
 
-  <img src="https://github.com/ClementVaugoyeau/Le-Coffre-du-Grenier/blob/master/assets/readme-picture.jpg?raw=true" width="650" alt="accessibility text">
+  <img src="https://github.com/ClementVaugoyeau/Le-Coffre-du-Grenier/blob/master/assets/readme-picture.jpg?raw=true"  alt="accessibility text">
 </p>       
             
         
