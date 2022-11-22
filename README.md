@@ -18,13 +18,13 @@ Bon Jeu !
 
     
 
- # Chest in the atic.
+ # Chest in the attic.
 
 It's a very short game made with THREE.js and Vite.
 
 Link to the game https://clementvaugoyeau.github.io/Le-Coffre-du-Grenier/
 
-Game is in franch by eady to understand i think.
+Game is in french but it's by easy to understand i think.
 
 Enjoy !
 
