@@ -6,7 +6,7 @@ Lien du jeu : https://clementvaugoyeau.github.io/Le-Coffre-du-Grenier/
 
 Bon Jeu !
 
-![Alt text](\assets\readme-picture.jpg?raw=true "readme-picture.jp")
+![screenshot](\assets\readme-picture.jpg?raw=true "readme-picture.jp")
 
  # Chest in the atic.
 
