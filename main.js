@@ -66,7 +66,7 @@ var diamond
 loader.load( 'assets/chest.glb', function ( gltf ) {
 
 	const modelChest = gltf.scene
-  console.log(gltf.scene.children[2].name)
+ 
   
   
  
@@ -498,7 +498,7 @@ function onButtonPrevious(event){
 function animate(time) {
   requestAnimationFrame(animate);
 
-  console.log(counter)
+  
 
     if(mixer)
         mixer.update(clock.getDelta());
